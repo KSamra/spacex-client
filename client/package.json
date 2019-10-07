@@ -5,14 +5,17 @@
   "dependencies": {
     "apollo-boost": "^0.4.4",
     "graphql": "^14.5.8",
+    "moment": "^2.24.0",
     "react": "^16.10.2",
     "react-apollo": "^3.1.2",
     "react-dom": "^16.10.2",
+    "react-moment": "^0.9.6",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mv build ../public",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -30,5 +33,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy":"http://localhost:5000"
 }

@@ -49,7 +49,10 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args){
         return axios.get(`https://api.spacexdata.com/v3/launches/${args.flight_number}`)
-          .then(res => res.data)
+          .then((res) => {
+            return res.data
+          })
+          .catch(error => console.log(error))
       }
     },
     rockets: {
@@ -57,16 +60,6 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args){
         return axios.get('https://api.spacexdata.com/v3/rockets') 
           .then(res => res.data);
-      }
-    },
-    launch: {
-      type: RocketType,
-      args: {
-        rocket_id: {type: GraphQLInt},
-      },
-      resolve(parent, args){
-        return axios.get(`https://api.spacexdata.com/v3/rockets/${args.rocket_id}`)
-          .then(res => res.data)
       }
     }
   }
